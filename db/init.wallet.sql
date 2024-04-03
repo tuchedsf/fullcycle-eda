@@ -23,5 +23,5 @@ CREATE TABLE IF NOT EXISTS `wallet`.`transactions` (
 );
 INSERT INTO `wallet`.`clients` (id, name,email) VALUES ('f8df753c-3b58-43aa-8016-12aaa4f1ea3e', 'diego', 'diego@diego.com');
 INSERT INTO `wallet`.`clients` (id, name,email) VALUES ('0216ea38-524f-4e85-8743-d484a8f7538e', 'teste', 'teste@teste.com');
-INSERT INTO `WALLET`.`ACCOUNTS`(id, client_id,balance) VALUES ('87495b95-1c7f-4038-ae55-ab36ed6a9411','f8df753c-3b58-43aa-8016-12aaa4f1ea3e', 100.00);
-INSERT INTO `WALLET`.`ACCOUNTS`(id, client_id,balance) VALUES ('9e3c6bb1-bf75-11e9-9ea7-2a2ae2dbcce4','0216ea38-524f-4e85-8743-d484a8f7538e', 25.00);
+INSERT INTO `wallet`.`accounts`(id, client_id,balance) VALUES ('87495b95-1c7f-4038-ae55-ab36ed6a9411','f8df753c-3b58-43aa-8016-12aaa4f1ea3e', 100.00);
+INSERT INTO `wallet`.`accounts`(id, client_id,balance) VALUES ('9e3c6bb1-bf75-11e9-9ea7-2a2ae2dbcce4','0216ea38-524f-4e85-8743-d484a8f7538e', 25.00);

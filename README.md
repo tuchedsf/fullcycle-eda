@@ -41,3 +41,20 @@ INSERT INTO `WALLET`.`ACCOUNTS`(id, client_id,balance) VALUES ('9e3c6bb1-bf75-11
 ```
 
 Não consegui simular porque no seu ele criou as tabelas no banco mas não populou os dados. Aguardo retorno.
+
+
+### Atualização 03/04:
+
+Diego,
+Por alguma razão populou clients mas não o transactions e accounts.
+
+
+Resposta:
+Gabriel bom dia, 
+
+- accounts ele deveria ter preenchido, a diferença no arquivo de dump que clients que deu certo ta minusculo e accounts que deu errado ta maiúsclo. ajustei.
+
+- transactions realmente não tem, pois a mesma esta configurada pra ser criada via aplicação na hora que envia o servico do wallet, para ele poder disparar o evento do kafka e a aplicação balance ler do outro lado, e popular sua base etc.
+
+Outros ajustes:
+- removi a linha #- .docker/mysql-balance:/var/lib/mysql , no arquivo docker-compose.yaml do Volumes dos bancos, pois na hora de testar aqui fui tentar descobri porque o seu não estava carregando e com o sem ele não deu diferença.

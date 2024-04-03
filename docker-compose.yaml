@@ -24,8 +24,8 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - .docker/mysql-wallet:/var/lib/mysql
-      - ./db/init.wallet.sql:/docker-entrypoint-initdb.d/init.sql
+      #- .docker/mysql-wallet:/var/lib/mysql
+      - ./db/init.wallet.sql:/docker-entrypoint-initdb.d/init.wallet.sql
 
   zookeeper:
     image: "confluentinc/cp-zookeeper:6.1.0"
@@ -90,8 +90,8 @@ services:
     ports:
       - 3307:3306
     volumes:
-      - .docker/mysql-balance:/var/lib/mysql
-      - ./db/init.balance.sql:/docker-entrypoint-initdb.d/init.sql
+      #- .docker/mysql-balance:/var/lib/mysql
+      - ./db/init.balance.sql:/docker-entrypoint-initdb.d/init.balance.sql
     #networks: 
      # - node-network
 
