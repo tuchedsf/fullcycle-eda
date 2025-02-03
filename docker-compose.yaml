@@ -11,7 +11,7 @@ services:
       - 8080:8080
     depends_on:
       - mysql-wallet
-  
+    command: sh -c "cd cmd/walletcore && go run main.go"
  
   mysql-wallet:
     image: mysql:5.7
