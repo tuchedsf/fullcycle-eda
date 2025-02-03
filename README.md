@@ -10,7 +10,8 @@
 - para rodar o projeto:
 
 ```
-docker compose up -d  ou caso ja tenha executado alguma vez e alterar algum parametro no projeto: docker compose up -d --build
+docker compose up -d
+## caso ja tenha executado alguma vez e alterar algum parametro no projeto: docker compose up -d --build
 ```
 
 Toda chamada a funcionalidade de transactions da wallet core, disparada 2 eventos para o kafka, de transactions e balances. A app java le os eventos de balance e mantem um banco  com os balances recedidos via kafka. 
