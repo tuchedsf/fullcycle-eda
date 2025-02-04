@@ -8,7 +8,8 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - mysql-wallet
+      mysql-wallet:
+        condition: service_healthy
     command: sh -c "cd cmd/walletcore && go run main.go"
  
   mysql-wallet:
@@ -16,6 +17,12 @@ services:
     platform: linux/amd64
     container_name: mysql-wallet
     restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-P", "3306", "-u", "root", "-proot"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: wallet
@@ -85,6 +92,12 @@ services:
     platform: linux/amd64
     container_name: mysql-balance
     restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-P", "3306", "-u", "root", "-proot"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: balance
@@ -101,7 +114,8 @@ services:
   javaapp:
     container_name: javaapp
     depends_on:
-      - mysql-balance
+      mysql-balance:
+        condition: service_healthy
     build: 
       context: kafka
     restart: on-failure
